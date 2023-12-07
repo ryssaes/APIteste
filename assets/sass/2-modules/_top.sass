@@ -1,0 +1,30 @@
+@use '../1-base/variables'
+
+.top-container
+    padding-top: 120px
+    display: block
+
+    h1
+        text-align: center
+        display: block
+        position: relative
+
+        &::after
+            content: ' '
+            width: 80px
+            background-color: variables.$white
+            height: 4px
+            display: block
+            border-radius: 5px
+            margin: 0 auto
+            margin-top: 20px
+
+    p
+        font-size: 16px
+        font-weight: 400
+        color: variables.$white
+        display: block
+        width: 440px
+        margin: 0 auto
+        text-align: center
+        margin-top: 30px

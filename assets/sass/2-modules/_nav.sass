@@ -1,0 +1,26 @@
+@use '../1-base/variables'
+@import '../3-functions/mixin'
+
+.nav-container
+    width: 100%
+    border-bottom: 1px solid variables.$white
+    position: fixed
+    z-index: 9
+    background-color: variables.$blue
+
+    nav
+        @include flex(row, wrap, space-between, center, 20px)
+        height: 80px
+
+        ul
+            @include flex(row, wrap, center, center, 20px)
+
+            li
+
+                a
+                    color: variables.$white
+                    font-size: 18px
+                    font-weight: 700
+
+                    &:hover
+                        color: variables.$orange
