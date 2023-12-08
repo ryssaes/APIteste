@@ -73,11 +73,30 @@ function getperfil() {
 function createperfil(){
     let div = document.getElementById('perfil-box');
     let div_container = ''
+
+    let regxcpf = /(\d{3})(\d{3})(\d{3})(\d{2})/;
+    let cpf = detalhe.cpf
+    let tratarcpf = cpf.match(regxcpf)
+    let cpftratado = tratarcpf[1] + '.' + tratarcpf[2] + '.' + tratarcpf[3] + '-' + tratarcpf[4];
+    // regx para cpf
+
+    let regdata = /(\d{4})(\d{2})(\d{2})/;
+    let datanascimento = detalhe.dataNascimento;
+    let tratardatanascimento = datanascimento.replace(regx, "");
+    let secondatanascimento = tratardatanascimento.match(regdata);
+    let datamontada = secondatanascimento[3] + '/' + secondatanascimento[2] + '/' + secondatanascimento[1];
+    // regex para data de nascimento
+
+
     div_container = div.innerHTML
     let html = `<div class="box-perfil">
+    <figure>
+    <img src="${detalhe.ultimoStatus.urlFoto}"></figure>
+    <span>${detalhe.nomeCivil}</span>
     <span class="email">Email:${detalhe.email = 'undefined' ? 'Não preenchido' : detalhe.email}</span>
     <span class="data">Data:${detalhe.data = 'undefined' ? 'Não preenchido' : detalhe.data}</span>
-    <span class="escolaridade">Escolaridade:${detalhe.escolaridade = 'undefined' ? 'Não preenchido' : detalhe.escolaridade}</span>
-    <span class="cpf">CPF:${detalhe.cpf = 'undefined' ? 'Não preenchido' : detalhe.cpf}</span></div>`
+    <span class="escolaridade">Escolaridade:${detalhe.escolaridade}</span>
+    <span class="cpf">CPF:${cpftratado}</span>
+    <span>${datamontada}</span></div>`
     div.innerHTML = div_container + html
 }
