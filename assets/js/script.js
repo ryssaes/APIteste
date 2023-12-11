@@ -80,6 +80,7 @@ function createperfil(){
     let cpftratado = tratarcpf[1] + '.' + tratarcpf[2] + '.' + tratarcpf[3] + '-' + tratarcpf[4];
     // regx para cpf
 
+    let regx = /[^a-zA-Z0-9]/g; //Regx Remover Espaçoes
     let regdata = /(\d{4})(\d{2})(\d{2})/;
     let datanascimento = detalhe.dataNascimento;
     let tratardatanascimento = datanascimento.replace(regx, "");
