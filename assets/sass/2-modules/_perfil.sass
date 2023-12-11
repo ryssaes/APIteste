@@ -11,6 +11,7 @@
         padding: 20px
         display: block
         margin: 0 auto
+        position: relative
 
         span
             box-shadow: 0px 1px 5px 2px rgba(255,255,255,0.75)
@@ -22,7 +23,19 @@
             color: variables.$white
             padding-left: 15px
 
-    
+        .btn-close
+            width: 10px
+            height: 10px
+            padding: 10px
+            display: block
+            background-color: variables.$red
+            border-radius: 50px
+            background-size: 10px
+            position: absolute
+            right: 20px
+            top: 0
+            cursor: pointer
+
         figure
             width: 200px
             height: auto
@@ -35,3 +48,8 @@
                 width: 100%
                 height: 100%
                 border-radius: 5px
+
+    .title-section
+        display: block
+        margin: 20px 0 
+        text-align: center

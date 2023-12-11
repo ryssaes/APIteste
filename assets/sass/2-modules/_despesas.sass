@@ -1,0 +1,29 @@
+@use '../1-base/variables'
+@import '../3-functions/mixin'
+
+.despesas
+    @include flex(row, wrap, center, center, 20px)
+    margin-top: 100px
+
+    .box-despesas
+        width: 300px
+        height: auto
+        padding: 20px
+        border-radius: 5px
+        border: 1px solid variables.$white
+
+        .valor
+            font-size: 25px
+            font-weight: 700
+            color: variables.$orange
+
+        .tipo-despesas
+            font-size: 18px
+            color: variables.$white
+            font-weight: 500
+            line-height: 18px
+
+        .data-despesa
+            font-size: 16px
+            font-weight: 500
+            color: variables.$white
