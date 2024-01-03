@@ -83,8 +83,23 @@ h1 {
   text-align: center;
   margin-top: 30px;
 }
+@media (max-width: 768px) {
+  .top-container p {
+    width: 100%;
+  }
+}
 
-.deputados-box {
+.deputados-container .overlay {
+  background-color: #000;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0.5;
+  width: 100%;
+  height: 0px;
+  z-index: 2;
+}
+.deputados-container .deputados-box {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -92,28 +107,29 @@ h1 {
   align-items: center;
   gap: 15px;
   margin-top: 100px;
+  position: relative;
 }
-.deputados-box .box-dep {
+.deputados-container .deputados-box .box-dep {
   width: 150px;
   height: 300px;
   box-shadow: 0px 1px 5px 2px rgba(255, 255, 255, 0.75);
   padding: 20px;
   cursor: pointer;
 }
-.deputados-box .box-dep figure {
+.deputados-container .deputados-box .box-dep figure {
   width: 100px;
   height: 100px;
   display: block;
   margin: 20px auto;
 }
-.deputados-box .box-dep figure img {
+.deputados-container .deputados-box .box-dep figure img {
   object-fit: cover;
   object-position: center;
   width: 100%;
   height: 100%;
   border-radius: 50px;
 }
-.deputados-box .box-dep .nome {
+.deputados-container .deputados-box .box-dep .nome {
   font-size: 25px;
   font-weight: 700;
   color: #fff;
@@ -121,7 +137,7 @@ h1 {
   display: block;
   line-height: 25px;
 }
-.deputados-box .box-dep .partido {
+.deputados-container .deputados-box .box-dep .partido {
   font-size: 14px;
   font-weight: 400;
   display: block;
@@ -132,7 +148,13 @@ h1 {
 
 .perfil-container {
   display: block;
+  margin: 0 auto;
   margin-top: 100px;
+  position: absolute;
+  top: 0px;
+  right: 0;
+  left: 0;
+  z-index: 3;
 }
 .perfil-container .box-perfil {
   box-shadow: 0px 1px 5px 2px rgba(255, 255, 255, 0.75);
@@ -142,6 +164,18 @@ h1 {
   display: block;
   margin: 0 auto;
   position: relative;
+  background-color: #090B30;
+  margin-top: 400px;
+}
+@media (max-width: 768px) {
+  .perfil-container .box-perfil {
+    width: 400px;
+  }
+}
+@media (max-width: 500px) {
+  .perfil-container .box-perfil {
+    width: 270px;
+  }
 }
 .perfil-container .box-perfil span {
   box-shadow: 0px 1px 5px 2px rgba(255, 255, 255, 0.75);
@@ -152,6 +186,18 @@ h1 {
   font-weight: 500;
   color: #fff;
   padding-left: 15px;
+}
+@media (max-width: 768px) {
+  .perfil-container .box-perfil span {
+    font-size: 20px;
+  }
+}
+@media (max-width: 500px) {
+  .perfil-container .box-perfil span {
+    margin: 10px auto;
+    font-size: 16px;
+    padding-left: 3px;
+  }
 }
 .perfil-container .box-perfil .btn-close {
   width: 10px;
@@ -166,11 +212,33 @@ h1 {
   top: 0;
   cursor: pointer;
 }
+@media (max-width: 768px) {
+  .perfil-container .box-perfil .btn-close {
+    width: 5px;
+    height: 5px;
+  }
+}
+@media (max-width: 500px) {
+  .perfil-container .box-perfil .btn-close {
+    width: 2px;
+    height: 2px;
+  }
+}
 .perfil-container .box-perfil figure {
   width: 200px;
   height: auto;
   display: block;
   margin: 20px auto;
+}
+@media (max-width: 768px) {
+  .perfil-container .box-perfil figure {
+    width: 170px;
+  }
+}
+@media (max-width: 500px) {
+  .perfil-container .box-perfil figure {
+    width: 140px;
+  }
 }
 .perfil-container .box-perfil figure img {
   object-fit: cover;

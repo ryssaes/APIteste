@@ -39,13 +39,13 @@ function createDeputados() {
     dep.forEach(element => {
         let div_container = ''
         div_container = div.innerHTML
-        let html = `<div class="box-dep" data-id="${element.id}">
+        let html = `<a href="#perfil-box"><div class="box-dep" data-id="${element.id}">
         <figure>
         <img src="${element.urlFoto}" alt="imagem do candidato">
         </figure>
         <span class="nome">${element.nome}</span>
         <span class="partido">${element.siglaPartido}</span>
-        </div>`
+        </div></a>`
         div.innerHTML = div_container + html
         getperfil();
     });
@@ -54,6 +54,7 @@ function createDeputados() {
 
 function getperfil() {
     $('.box-dep').click(function () {
+        $('.overlay').css('height','4000px');
         let getid = $(this).attr('data-id');
         let url = 'https://dadosabertos.camara.leg.br/api/v2/deputados/' + getid
         $.ajax({
@@ -66,8 +67,8 @@ function getperfil() {
                 detalhe = dado;
                 createperfil();
                 closeBox();
-                getDespesas();
-                createDespesas();
+                // getDespesas();
+                // createDespesas();
             })
     })
 }
@@ -103,49 +104,47 @@ function createperfil() {
     <span class="data">Data:${detalhe.data = 'undefined' ? 'Não preenchido' : detalhe.data}</span>
     <span class="escolaridade">Escolaridade:${detalhe.escolaridade}</span>
     <span class="cpf">CPF:${cpftratado}</span>
-    <span>Data de nascimento: ${datamontada}</span></div>
-    <h1 class="title-section">Despesas</h1>
-    <div class="despesas" id="despesas"></div>`
+    <span>Data de nascimento: ${datamontada}</span></div>`
     div.innerHTML = div_container + html
 }
 
-function getDespesas() {
-    $('.box-dep').click(function () {
-        let getid = $(this).attr('data-id')
-        let url = `https://dadosabertos.camara.leg.br/api/v2/deputados/${getid}/despesas?itens=10&ordem=ASC&ordenarPor=ano`
+// function getDespesas() {
+//     $('.box-dep').click(function () {
+//         let getid = $(this).attr('data-id')
+//         let url = `https://dadosabertos.camara.leg.br/api/v2/deputados/${getid}/despesas?itens=10&ordem=ASC&ordenarPor=ano`
 
-        $.ajax({
-            url: url,
-            type: 'GET',
-            dataType: 'json'
-        })
-            .done(function (response) {
-                let dado = response.dados
-                despesas = dado;
-            })
-    })
-}
+//         $.ajax({
+//             url: url,
+//             type: 'GET',
+//             dataType: 'json'
+//         })
+//             .done(function (response) {
+//                 let dado = response.dados
+//                 despesas = dado;
+//             })
+//     })
+// }
 
-function createDespesas() {
-    let div = document.getElementById('despesas')
-    let div_container = ''
-    let regx = /[^a-zA-Z0-9]/g; //Regx Remover Espaçoes
-    let regdata = /(\d{4})(\d{2})(\d{2})/;
+// function createDespesas() {
+//     let div = document.getElementById('despesas')
+//     let div_container = ''
+//     let regx = /[^a-zA-Z0-9]/g; //Regx Remover Espaçoes
+//     let regdata = /(\d{4})(\d{2})(\d{2})/;
 
-    despesas.forEach(function (index) {
-        let datanascimento = index.dataDocumento;
-        let tratardatanascimento = datanascimento.replace(regx, "");
-        let secondatanascimento = tratardatanascimento.match(regdata);
-        let datamontada = secondatanascimento[3] + '/' + secondatanascimento[2] + '/' + secondatanascimento[1];
-        div_container = div.innerHTML
-        let html = `<div class="box-despesas">
-        <h3 class="valor">${index.valorDocumento.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}<h3>
-        <p class="tipo-despesas">${index.tipoDespesa}</p>
-        <span class="data-despesa">${datamontada}</span>
-        </div>`
-        div.innerHTML = div_container + html
-    })
-}
+//     despesas.forEach(function (index) {
+//         let datanascimento = index.dataDocumento;
+//         let tratardatanascimento = datanascimento.replace(regx, "");
+//         let secondatanascimento = tratardatanascimento.match(regdata);
+//         let datamontada = secondatanascimento[3] + '/' + secondatanascimento[2] + '/' + secondatanascimento[1];
+//         div_container = div.innerHTML
+//         let html = `<div class="box-despesas">
+//         <h3 class="valor">${index.valorDocumento.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}<h3>
+//         <p class="tipo-despesas">${index.tipoDespesa}</p>
+//         <span class="data-despesa">${datamontada}</span>
+//         </div>`
+//         div.innerHTML = div_container + html
+//     })
+// }
 
 function getProfissao(){
     $('.box-dep').click(function(){
@@ -170,5 +169,6 @@ function closeBox() {
         $('.box-perfil').remove();
         $('.box-despesas').remove();
         $('.title-section').remove();
+        $('.overlay').css('height','0px');
     })
 }

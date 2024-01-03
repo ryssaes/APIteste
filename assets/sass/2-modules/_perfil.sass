@@ -1,9 +1,17 @@
 @use '../1-base/variables'
+@import '../3-functions/mixin'
 
 .perfil-container
     display: block
+    margin: 0 auto
     margin-top: 100px
+    position: absolute
+    top: 0px
+    right: 0
+    left: 0
+    z-index: 3
 
+    
     .box-perfil
         box-shadow: 0px 1px 5px 2px rgba(255,255,255,0.75)
         width: 500px
@@ -12,6 +20,16 @@
         display: block
         margin: 0 auto
         position: relative
+        background-color: variables.$blue
+        margin-top: 400px
+
+
+        @include tablet
+            width: 400px
+
+        @include mobile
+            width: 270px
+
 
         span
             box-shadow: 0px 1px 5px 2px rgba(255,255,255,0.75)
@@ -22,6 +40,14 @@
             font-weight: 500
             color: variables.$white
             padding-left: 15px
+
+            @include tablet
+                font-size: 20px
+
+            @include mobile
+                margin: 10px auto
+                font-size: 16px
+                padding-left: 3px
 
         .btn-close
             width: 10px
@@ -36,11 +62,25 @@
             top: 0
             cursor: pointer
 
+            @include tablet
+                width: 5px
+                height: 5px
+
+            @include mobile
+                width: 2px
+                height: 2px
+
         figure
             width: 200px
             height: auto
             display: block
             margin: 20px auto
+
+            @include tablet
+                width: 170px
+            
+            @include mobile
+                width: 140px
 
             img
                 object-fit: cover
