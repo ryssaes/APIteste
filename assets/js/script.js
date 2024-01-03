@@ -39,13 +39,13 @@ function createDeputados() {
     dep.forEach(element => {
         let div_container = ''
         div_container = div.innerHTML
-        let html = `<a href="#perfil-box"><div class="box-dep" data-id="${element.id}">
+        let html = `<div class="box-dep" data-id="${element.id}">
         <figure>
         <img src="${element.urlFoto}" alt="imagem do candidato">
         </figure>
         <span class="nome">${element.nome}</span>
         <span class="partido">${element.siglaPartido}</span>
-        </div></a>`
+        </div>`
         div.innerHTML = div_container + html
         getperfil();
     });

@@ -55,15 +55,42 @@ h1 {
 }
 
 .top-container {
-  padding-top: 120px;
   display: block;
 }
-.top-container h1 {
+.top-container .top-bg {
+  padding-top: 80px;
+}
+.top-container .top-bg figure {
+  position: relative;
+}
+.top-container .top-bg img {
+  width: 100%;
+}
+.top-container .text-box {
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin-top: -120px;
+}
+@media (max-width: 768px) {
+  .top-container .text-box {
+    margin-top: -80px;
+  }
+}
+@media (max-width: 500px) {
+  .top-container .text-box {
+    margin: -40px;
+    width: 100%;
+    margin: 0 auto;
+  }
+}
+.top-container .text-box h1 {
   text-align: center;
   display: block;
   position: relative;
 }
-.top-container h1::after {
+.top-container .text-box h1::after {
   content: " ";
   width: 80px;
   background-color: #fff;
@@ -73,7 +100,7 @@ h1 {
   margin: 0 auto;
   margin-top: 20px;
 }
-.top-container p {
+.top-container .text-box p {
   font-size: 16px;
   font-weight: 400;
   color: #fff;
@@ -84,7 +111,7 @@ h1 {
   margin-top: 30px;
 }
 @media (max-width: 768px) {
-  .top-container p {
+  .top-container .text-box p {
     width: 100%;
   }
 }
@@ -165,7 +192,7 @@ h1 {
   margin: 0 auto;
   position: relative;
   background-color: #090B30;
-  margin-top: 400px;
+  margin-top: 1100px;
 }
 @media (max-width: 768px) {
   .perfil-container .box-perfil {
