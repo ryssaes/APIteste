@@ -28,6 +28,9 @@ h1 {
   z-index: 9;
   background-color: #090B30;
 }
+.nav-container figure {
+  padding-top: 15px;
+}
 .nav-container nav {
   display: flex;
   flex-direction: row;
@@ -238,6 +241,10 @@ h1 {
   right: 20px;
   top: 0;
   cursor: pointer;
+  background-image: url("../img/close.png");
+  z-index: 4;
+  background-size: 50%;
+  opacity: 1;
 }
 @media (max-width: 768px) {
   .perfil-container .box-perfil .btn-close {
