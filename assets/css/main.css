@@ -313,4 +313,39 @@ h1 {
   color: #fff;
 }
 
+.footer-container {
+  margin-top: 100px;
+}
+.footer-container h2 {
+  color: #FC7300;
+  font-size: 24px;
+}
+.footer-container p {
+  color: white;
+  font-size: 20px;
+}
+.footer-container .box-credits {
+  margin-top: 50px;
+  margin-bottom: 100px;
+}
+.footer-container .box-credits .list-main {
+  display: flex;
+  color: white;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.footer-container .box-credits .list-main li {
+  width: 400px;
+}
+@media (max-width: 768px) {
+  .footer-container .box-credits .list-main li {
+    width: 100px;
+  }
+}
+.footer-container .box-credits .list-main .credit {
+  font-weight: 700;
+  font-size: 20px;
+  padding: 7px 0;
+}
+
 /*# sourceMappingURL=main.css.map */

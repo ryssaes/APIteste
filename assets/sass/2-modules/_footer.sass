@@ -1,0 +1,33 @@
+@use '../1-base/variables'
+@import '../3-functions/mixin'
+
+.footer-container
+    margin-top: 100px
+    h2
+        color: variables.$orange
+        font-size: 24px
+    
+    p
+        color: white
+        font-size: 20px
+
+    .box-credits
+        margin-top: 50px
+        margin-bottom: 100px
+
+        .list-main
+            ul
+            display: flex
+            color: white
+            gap: 20px
+            flex-wrap: wrap
+
+            li
+                width: 400px
+                @include tablet
+                    width: 100px
+
+            .credit
+                font-weight: 700
+                font-size: 20px
+                padding: 7px 0
